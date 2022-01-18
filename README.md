@@ -7,20 +7,20 @@ Travl is an app for your adventures past, present, and future. Travl allows the 
 ## MVP
 
 ## Pages
-Login Page (for existing to sign in or link to sign up)
-Sign Up Page
-Points of Interest Page
-Submission Page
-Settings Page
+- Login Page (for existing to sign in or link to sign up)
+- Sign Up Page
+- Points of Interest Page
+- Submission Page
+- Settings Page
 
 ## User is able to
-register an account
-add points of interest
-view their points of interest (through category lists or on a map)
-adjust settings to toggle on and adjust location notifications 
+- register an account
+- add points of interest
+- view their points of interest (through category lists or on a map)
+- adjust settings to toggle on and adjust location notifications 
 
 ## Database contains
-User info
-User list
-Points of Interest
-Categories
+- User info
+- User list
+- Points of Interest
+- Categories
