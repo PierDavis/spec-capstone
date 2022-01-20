@@ -1,0 +1,13 @@
+syntax to add to postgres heroku
+
+this was erroring:
+
+CREATE TABLE points_of_interest (
+id SERIAL PRIMARY KEY,
+title VARCHAR(255),
+coordinates VARCHAR(255),
+category VARCHAR(50),
+image_file VARCHAR(255),
+URL VARCHAR(255),
+notes VARCHAR(500),
+)

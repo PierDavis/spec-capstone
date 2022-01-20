@@ -1,11 +1,10 @@
 const {Sequelize} = require('sequelize')
 
-//comment below back in once you have the URI link from heroku
-// const sequelize = new Sequelize(
-//     "postgress://find link from heroku https://data.heroku.com/datastores/9e1cf550-e3d4-4cd3-8c16-b640ad45ffbe#administration and input here",
-// 
+const sequelize = new Sequelize(
+    "postgres://gkjtacoqblloya:5fc3f1ea1d7f5fcc42f80250018e389821fee594a19b2f0618f835e371a0d1bc@ec2-34-194-171-47.compute-1.amazonaws.com:5432/d6qa29d5k6dnf8",
+
 {
-    dialect: "postgres"
+    dialect: "postgres",
     dialectOptions: {
         ssl: {
             require: true,

@@ -1,17 +1,35 @@
-import logo from './logo.svg';
+import logo from './travlLogoAB.png';
 import './App.css';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+
+import {Routes, Route } from 'react-router';
+import {useState} from 'react'
 
 function App() {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const loginUser = () => 
   return (
-    <div className="App">
-
-
-
+    <div className="Travl">
+      <Routes>
+        <Route path='login' element={<Login />}/>
+        <Route path='signup' element={<SignUp />}/>
+        {/* <Route path='profile' element={<Profile />}/> */}
+      </Routes>
+    
+  
+      <img src={logo} className="Travl-logo" alt="logo" />
+      <h1>Travl</h1>
+    </div>
+  );
+}
       
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      /* 
+
+      <header className="Travl">
+       
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code></code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -19,11 +37,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Travl
         </a>
-      </header>
-    </div>
-  );
-}
+//       </header> */
+//}
+//     </div>
+//   );
+// }
 
 export default App;

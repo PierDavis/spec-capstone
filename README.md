@@ -10,7 +10,9 @@ Travl is an app for your adventures past, present, and future. Travl allows the 
 - Login Page (for existing to sign in or link to sign up)
 - Sign Up Page
 - Points of Interest Page
+- Point of Interest Details Page
 - Submission Page
+- Map of Points Page
 - Settings Page
 
 ## User is able to

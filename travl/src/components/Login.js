@@ -7,8 +7,18 @@ function Login() {
         password: ""
     }
     const onSubmit = (values) => {
-        console.log('submit clicked')
+        console.log(values)
     }
+    //     axios.post('/login', values)
+    //     .then((res) => {
+    //         console.log(res.data)
+    // })
+    //     .catch((err) => {
+    //     console.log(err.response.data)
+    //     //(finish here 5:20 PM - 80 mins into recording)
+    // }
+    //     console.log('submit clicked')
+    
     const validate = (values) => {
         console.log('validation')
     }
@@ -26,16 +36,16 @@ function Login() {
             name="username"
             onChange={formik.handleChange}
             value={formik.values.username}
-            placeholder='Username'
+            placeholder='username'
             />
             <input 
             type="password"
             name="password"
             onChange={formik.handleChange}
             value={formik.values.password}
-            placeholder='Password'
+            placeholder='password'
             />
-            <button type='submit' disabled={!formik.isValid}>Submit</button>
+            <button type='log in' disabled={!formik.isValid}>log in</button>
         </form>
     </div>;
 }
