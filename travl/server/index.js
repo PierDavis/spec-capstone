@@ -40,7 +40,7 @@ app.post('/signup', async (req, res) => {
     }  
 })
 app.post('/login', async (req, res) => {
-    const {username, passowrd} = req.body
+    const {username, password} = req.body
     const validUser = await sequelize.query(`
         SELECT * FROM users WHERE username = '${username}
     `)

@@ -38,7 +38,7 @@ function SignUp() {
         validate
 })
 
-    return <div class="outer">
+    return <div className="outer">
         
         <form id='sign-up-form' onSubmit={formik.handleSubmit}>
          {/* <div className='form-group'>  */}

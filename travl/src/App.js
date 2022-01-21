@@ -2,6 +2,7 @@
 import './App.css';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Settings from './components/Settings';
 
 import {Routes, Route } from 'react-router';
 import {useState} from 'react'
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='login' element={<Login />}/>
         <Route path='signup' element={<SignUp />}/>
+        <Route path='settings' element={<Settings />}/>
         {/* <Route path='profile' element={<Profile />}/> */}
       </Routes>
     
