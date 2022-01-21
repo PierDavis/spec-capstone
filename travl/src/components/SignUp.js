@@ -38,52 +38,73 @@ function SignUp() {
         validate
 })
 
-    return <div>
-        <h2>Sign Up</h2>
-        <form onSubmit={formik.handleSubmit}>
+    return <div class="outer">
+        
+        <form id='sign-up-form' onSubmit={formik.handleSubmit}>
+         {/* <div className='form-group'>  */}
          <input 
          type="text"
-         name="first name"
+         className="form-control"
+         //name="first name"
          onChange={formik.handleChange}
          value={formik.values.firstName}
          placeholder='first name'
          />
+         {/* </div> 
+         <div className='form-group'>  */}
          <input 
+         id="sign-up-last-name"
          type="text"
-         name="last name"
+         className="form-control"
+         //name="last name"
          onChange={formik.handleChange}
          value={formik.values.lastName}
          placeholder='last name'
          />
+         {/* </div>
+         <div className='form-group'>  */}
          <input 
-         type="text"
-         name="email"
+         type="email"
+         className="form-control"
+         //name="email"
          onChange={formik.handleChange}
          value={formik.values.email}
          placeholder='email'
          />
+         {/* </div>
+         <div className='form-group'>  */}
          <input 
          type="text"
-         name="username"
+         className="form-control"
+         //name="username"
          onChange={formik.handleChange}
          value={formik.values.username}
          placeholder='username'
          />
+         {/* </div>
+         <div className='form-group'>  */}
          <input 
          type="password"
-         name="password"
+         className="form-control"
+         //name="password"
          onChange={formik.handleChange}
          value={formik.values.password}
          placeholder='password'
-         /><input 
+         />
+         {/* </div>
+         <div className='form-group'>  */}
+         <input 
          type="password"
-         name="Confirmpassword"
+         className="form-control"
+         //name="Confirmpassword"
          onChange={formik.handleChange}
          value={formik.values.password}
          placeholder='confirm password'
          />
-         <button type='create' disabled={!formik.isValid}>create</button>
-        
+         {/* </div> */}
+
+         <button type='submit' disabled={!formik.isValid}>create</button>
+         <footer><h1 class="brand">Travl</h1></footer>
     </form>
     <div>
         {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
@@ -95,7 +116,7 @@ function SignUp() {
     </div>
 
     </div>;
-
+    
 }
 
 export default SignUp

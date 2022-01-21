@@ -1,4 +1,4 @@
-import logo from './travlLogoAB.png';
+//import logo from './travlLogoAB.png';
 import './App.css';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
@@ -18,8 +18,8 @@ function App() {
       </Routes>
     
   
-      <img src={logo} className="Travl-logo" alt="logo" />
-      <h1>Travl</h1>
+      {/* <img src={logo} className="Travl-logo" alt="logo" />
+      <h1>Travl</h1> */}
     </div>
   );
 }

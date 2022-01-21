@@ -1,5 +1,6 @@
 import React from 'react';
 import {useFormik} from 'formik'
+import logo from '../travlLogoAB.png';
 
 function Login() {
     const initialValues = {
@@ -28,24 +29,42 @@ function Login() {
         validate
     })
     
-    return <div>
-        <h2>Login</h2>
-        <form onSubmit={formik.handleSubmit}>
+    return <div className="outer">
+        <form id='log-in-form' onSubmit={formik.handleSubmit}>
+        <img src={logo} className="Travl-logo" alt="logo" />
+
+            <div className="innerone">
             <input 
             type="text"
             name="username"
             onChange={formik.handleChange}
             value={formik.values.username}
-            placeholder='username'
+            placeholder=' username'
             />
+            </div>
+
+            <div className="innertwo">
             <input 
             type="password"
             name="password"
             onChange={formik.handleChange}
             value={formik.values.password}
-            placeholder='password'
+            placeholder=' password'
             />
-            <button type='log in' disabled={!formik.isValid}>log in</button>
+            </div>
+            <div class="lower">
+            <button type='submit' disabled={!formik.isValid}>log in</button>
+            </div>
+            <div>
+            <p  className="forgot-password-text">
+                <a href="#">forgot password?</a>
+            </p>
+            <p  className="sign-up-text">
+                <a href="#">sign up</a>
+            </p>
+            
+        </div>
+      <footer><h1 class="brand">Travl</h1></footer>
         </form>
     </div>;
 }
