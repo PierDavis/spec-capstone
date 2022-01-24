@@ -61,6 +61,7 @@ app.post('/login', async (req, res) => {
 })
 
 sequelize.authenticate()
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

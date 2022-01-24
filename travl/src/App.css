@@ -2,6 +2,8 @@
   text-align: center;
 }
 
+@media only screen and (min-width: 1px) and (max-width: 599px){}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -300,20 +302,10 @@ button[type=submit]{
   background: #06D6A0;
   }
 
-  .settings-dropdown {
-  border-radius: 50px;
-  width: 300px;
-  height: 33px;
-  border: none;
-  text-align: center;
-  color: black;
-  justify-content: center;
-  place-items: center;
-  align-items:center;
-  margin: 10px;
-  }
 
 .main-settings {
+  display: flex;
+  flex-direction: column;
   width: 300px;
   height: 550px;
   border: 1pt solid black;
@@ -336,13 +328,10 @@ button[type=submit]{
   font-size: smaller;
   border-style: solid;
   border-width: 1px;
-  /* border-radius: 50px; */
+  border-radius: 50px;
   place-items: center;
   padding: 2px 10px 2px 10px;
   justify-content: space-between;
-
-  
-  
 
   /* border-radius: 50px;
   width: 80px;
@@ -367,15 +356,52 @@ button[type=submit]{
   margin: 10px; */
   }
 
-  button[type=dropdown]{
+  .radius {
     border-radius: 50px;
-    width: 200px;
+    border-style: solid;
+    width: 250px;
+    height: 30px;
+    border-color: black;
+    border-width: 1px;
+    text-align: center;
+  }
+
+  .settings-dropdown {
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 50px;
+    border-style: solid;
+    
+    border-color: black;
+    border-width: 4px;
+    width: 250px;
     height:30px;
     border: none;
     text-align: center;
     color: black;
-    display: grid;
+    display: flex;
     place-items: center;
     font-size: smaller;
-    /* text-align: center; */
+    text-align: center;
+    justify-content: center;
+    align-items:center;
+    margin: 10px;
   }
+
+  .dropdown {
+    display:inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 50px;
+    border-style: none;
+    /* background-color: rgb(238, 226, 226); */
+    border-color: none;
+    
+  }
+
+  /* span {
+    border-color: blue;
+    border-style: solid;
+    border-width: 1px;
+    
+  } */

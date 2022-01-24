@@ -3,7 +3,8 @@ import {useFormik} from 'formik'
 
 function SignUp() {
     const initialValues = {
-        name: "",
+        firstName: "",
+        lastName: "",
         username: "",
         password: "",
         confirmPassword: ""
