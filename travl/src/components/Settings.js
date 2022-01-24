@@ -3,33 +3,30 @@ import React from 'react';
 //import Switch from "react-switch";
 
 
-function Settings() {
-    return (
-        <div id='settings' className="notifications">
+// function Settings() {
+//     return (
+//         <div id='settings' className="notifications">
             
-            <h2>Settings</h2>
+//             <h2>Settings</h2>
         
-            <p>location on</p>
-            <button></button>
-            {/* <div className="toggleWrapper">
-            <input type="checkbox" name="toggle1" className="mobileToggle" id="toggle1" checked/>
-        <label for="toggle1"></label>
-        </div> */}
-        {/* <Switch {...label} defaultChecked />
-<Switch {...label} /> */}
-            <p>notification on</p>
-            <button></button>
+//             <p>location on</p>
+//             <button></button>
+//             <p>notification on</p>
+//             <button></button>
 
-            <button type='dropdown'>notification radius</button>
+//             <button type='dropdown'>notification radius</button>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
 
 const Setting = ({ isOn, handleToggle }) => {
     return (
       <>
-        <input
+      <div className='main-settings'>
+        
+        <div className='settings'>location on
+        <input className='toggle'
           checked={isOn}
           onChange={handleToggle}
           className="react-switch-checkbox"
@@ -42,7 +39,31 @@ const Setting = ({ isOn, handleToggle }) => {
         >
           <span className={`react-switch-button`} />
         </label>
+        </div>
+        <div className='settings'>notification on
+        <input className='toggle'
+          checked={isOn}
+          onChange={handleToggle}
+          className="react-switch-checkbox"
+          id={`react-switch-new`}
+          type="checkbox"
+        />
+        <label
+          className="react-switch-label"
+          htmlFor={`react-switch-new`}
+        >
+          <span className={`react-switch-button`} />
+        </label>
+        </div>
+        <div className='settings-dropdown'>
+        <button type='dropdown' className='settings'>notification radius</button>
+        </div>
+
+      </div>
       </>
+      
+      
+      
     );
   };
 
@@ -52,5 +73,5 @@ const Setting = ({ isOn, handleToggle }) => {
   htmlFor={`react-switch-new`}
 ></label>
 
-export default Settings;
+export default Setting;
 // export function Setting ()
