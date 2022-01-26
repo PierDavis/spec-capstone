@@ -129,7 +129,7 @@
   /* display: grid; */
   /* grid-template: 1fr / 1fr; */
   /* place-items: center; */
-  margin-top: 50px;
+  margin-top: 40px;
   opacity: 80%;
 }
 #log-in-form input {
@@ -433,23 +433,16 @@ button[type=submit]{
 
 /* PROFILE PAGE CSS BELOW */
 
-.profile-logo {
-  width: 100%;
-  /* border-color: #282c34;
-  background-color: #61dafb; */
-  border-radius: 50%;
-  /* border: 1px solid; */
-  position: absolute;
-  left: 5px;
-  top: 0px;
-  z-index: 2px;
+#profile-logo  {
+    width: 30%;
+    position: absolute;
+    left: 5px;
+    top: 0px;
 }
-
-
 
 html { height: 100%; }
 
-.main {
+.main-settings {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -457,38 +450,39 @@ html { height: 100%; }
 }
 
 #container {
-  max-width: 90vh;
-  max-height: 90vh;
-  margin: 5vh auto;
-  position: relative;
-  background-color: honeydew;
+  margin: 10vh;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: center;
+  /* background-color: honeydew; */
+  height: 60vh;
+  margin-bottom: 10vh;
+  margin-top: 15vh;
 }
 
 .red {
-  height: 100%;
-  width: 100%;
+  width: 90vw;
   border: 1px solid red;
+  height: 50vh;
+  
   }
   
     .circlea {
-      display: inline-block;
-      vertical-align: middle;
+      display: flex;
       margin: 3%;
-      width: 25%;
-      padding-bottom: 25%;
-      /* background-color: #333; */
-      border: 2px solid green;
+      width: 24vw;
+      padding-bottom: 24vw;
+      /* border: 1px solid black; */
       border-radius: 50%;
-      
+      background-color: rgb(238, 238, 238);
+      opacity: 80%;
+
     }
 
-    /* .wrapper { */
-      /* width: 25%; */
-      /* height: 10vh;
-      width:10%; */
-      /* whatever width you want */
-      /* display: inline-block;
-      position: relative;
+    /* .wrapper {
     } */
     
     /* .wrapper:after {
@@ -496,17 +490,10 @@ html { height: 100%; }
       /* 16:9 ratio */
       /* display: block;
       content: '';
-    } */
-
-    /* .main { */
-      /* position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0; */
-      /* stroke parent */
-      /* border: 1px solid black; */
+      /* border: 1px solid black;
       /* let's see it! */
-    /* } */
+    }
 
-}
+    h2 {
+      margin: 20px;
+    }

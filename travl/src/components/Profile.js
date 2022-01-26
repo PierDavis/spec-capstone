@@ -9,14 +9,12 @@ function Profile() {
     <div class='wrapper'>
         <div class='main'>
             <div className='main-icon'>
-      {/* <div className='circle'></div> */}
-                <img src={icon} className="profile-logo" alt="profile icon" />
-                <img src={logo} className="Travl-logo" alt="logo" /> 
-                <img src={iconBar} id="icon-bar" alt="profile bar" />
+            <img src={logo} className="Travl-logo" alt="logo"/> 
+            <img src={icon} id="profile-logo" alt="profile icon"/>
+            <img src={iconBar} id="icon-bar" alt="profile bar"/>
         </div>
             
     <div className='main-settings'>
-          
         <div id='container' className="red">
             <div className="circlea"></div>
             <div className="circlea"></div>
@@ -27,9 +25,15 @@ function Profile() {
             <div className="circlea"></div>
             <div className="circlea"></div>
             <div className="circlea"></div>
+            <div className="circlea"></div>
+            <div className="circlea"></div>
+            <div className="circlea"></div>
+            <div className="circlea"></div>
+            <div className="circlea"></div>
+            <div className="circlea"></div>
         </div> 
-
     </div>
+    <h2>text</h2>
 </div>
 </div> 
 
