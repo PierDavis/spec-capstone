@@ -23,15 +23,17 @@ import iconBar from '../icons/settings_profile_settings_icons-03.svg';
 //     )
 // }
 
-
 const Setting = ({ isOn, handleToggle }) => {
     return (
       <>
-       <div className='circle'>
+      
+      <div className='main-icon'>
       {/* <div className='circle'></div> */}
-      <img src={icon} className="settings-logo" alt="settings icon" />
-       <img src={logo} className="Travl-logo" alt="logo" /> 
-       <img src={iconBar} className="icon-bar" alt="profile bar" /></div>
+        <img src={icon} id="settings-logo" alt="settings icon" />
+        <img src={logo} className="Travl-logo" alt="logo" /> 
+        <img src={iconBar} id="icon-bar" alt="profile bar" />
+      </div>
+      <form className='settings-form'>
       <div className='main-settings'>
       
 
@@ -39,7 +41,7 @@ const Setting = ({ isOn, handleToggle }) => {
         <input className='toggle'
           checked={isOn}
           onChange={handleToggle}
-          className="location-switch-checkbox"
+          className='location-switch-checkbox'
           id={`location-switch-new`}
           type="checkbox"
         />
@@ -51,11 +53,11 @@ const Setting = ({ isOn, handleToggle }) => {
         </label>
         </div>
         
-        <div className='settings-dropdown'>
         <form className='radius'>
-        <label for='dropdown'>notification radius:</label> 
+        <div className='settings-dropdown'>
+        <label for='dropdown'>notification radius</label> 
         <select className='dropdown' id='radius'>
-         
+        <option disabled selected value> </option>
         <option value='0.25 mile'>0.25 mile</option>
         <option value='1 mile'>1 mile</option>
         <option value='5 miles'>5 miles</option>
@@ -64,8 +66,9 @@ const Setting = ({ isOn, handleToggle }) => {
         </select>
         {/* <br></br>
         <input type='submit' value='submit'>Submit</input> */}
-        </form>
         </div>
+        </form>
+        
 
         <div className='settings'>notification on
         <input className='toggle'
@@ -85,6 +88,7 @@ const Setting = ({ isOn, handleToggle }) => {
        
 
       </div>
+      </form>
       </>
       
       

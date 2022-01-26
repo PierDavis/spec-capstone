@@ -31,9 +31,9 @@ function Login() {
     
     return <div className="outer">
         <form id='log-in-form' onSubmit={formik.handleSubmit}>
-        <img src={logo} className="Travl-logo" alt="logo" />
+        {/* <img src={logo} className="Travl-logo" alt="logo" /> */}
 
-            <div className="innerone">
+            <div className="inputone">
             <input 
             type="text"
             name="username"
@@ -43,7 +43,7 @@ function Login() {
             />
             </div>
 
-            <div className="innertwo">
+            <div className="inputtwo">
             <input 
             type="password"
             name="password"
@@ -52,20 +52,21 @@ function Login() {
             placeholder=' password'
             />
             </div>
-            <div class="lower">
+            <div class="inputhree">
             <button type='submit' disabled={!formik.isValid}>log in</button>
             </div>
-            <div>
+        <h1 className="brand">Travl</h1>
+        </form>
+        <div>
             <p  className="forgot-password-text">
                 <a href="#">forgot password?</a>
             </p>
             <p  className="sign-up-text">
                 <a href="#">sign up</a>
             </p>
-            
         </div>
-      <footer><h1 class="brand">Travl</h1></footer>
-        </form>
+      
+        
     </div>;
 }
 

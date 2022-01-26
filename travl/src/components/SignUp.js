@@ -105,7 +105,7 @@ function SignUp() {
          {/* </div> */}
 
          <button type='submit' disabled={!formik.isValid}>create</button>
-         <footer><h1 class="brand">Travl</h1></footer>
+         <h1 class="brand">Travl</h1>
     </form>
     <div>
         {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
