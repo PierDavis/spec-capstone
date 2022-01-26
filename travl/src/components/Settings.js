@@ -1,4 +1,7 @@
 import React from 'react';
+import icon from '../icons/settings_icon-02.svg';
+import logo from '../icons/settings_logo-02.svg';
+import iconBar from '../icons/settings_profile_settings_icons-03.svg';
 //import React, { Component } from "react";
 //import Switch from "react-switch";
 
@@ -24,23 +27,27 @@ import React from 'react';
 const Setting = ({ isOn, handleToggle }) => {
     return (
       <>
-      {/* <span className='circle'></span> */}
-
+       <div className='circle'>
+      {/* <div className='circle'></div> */}
+      <img src={icon} className="settings-logo" alt="settings icon" />
+       <img src={logo} className="Travl-logo" alt="logo" /> 
+       <img src={iconBar} className="icon-bar" alt="profile bar" /></div>
       <div className='main-settings'>
-        
+      
+
         <div className='settings'>location on
         <input className='toggle'
           checked={isOn}
           onChange={handleToggle}
-          className="react-switch-checkbox"
-          id={`react-switch-new`}
+          className="location-switch-checkbox"
+          id={`location-switch-new`}
           type="checkbox"
         />
         <label
-          className="react-switch-label"
-          htmlFor={`react-switch-new`}
+          className="location-switch-label"
+          htmlFor={`location-switch-new`}
         >
-          <span className={`react-switch-button`} />
+          <span className={`location-switch-button`} />
         </label>
         </div>
         
@@ -64,15 +71,15 @@ const Setting = ({ isOn, handleToggle }) => {
         <input className='toggle'
           checked={isOn}
           onChange={handleToggle}
-          className="react-switch-checkbox"
-          id={`react-switch-new`}
+          className="notification-switch-checkbox"
+          id={`notification-switch-new`}
           type="checkbox"
         />
         <label
-          className="react-switch-label"
-          htmlFor={`react-switch-new`}
+          className="notification-switch-label"
+          htmlFor={`notification-switch-new`}
         >
-          <span className={`react-switch-button`} />
+          <span className={`notification-switch-button`} />
         </label>
         </div>
        

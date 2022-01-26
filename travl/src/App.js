@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Settings from './components/Settings';
+import Profile from './components/Profile';
 
 
 import {Routes, Route } from 'react-router';
@@ -17,8 +18,7 @@ function App() {
         <Route path='login' element={<Login />}/>
         <Route path='signup' element={<SignUp />}/>
         <Route path='settings' element={<Settings />}/>
-        {/* <Route path='switch' element={<Switch />}/> */}
-        {/* <Route path='profile' element={<Profile />}/> */}
+        <Route path='profile' element={<Profile />}/>
       </Routes>
     
   

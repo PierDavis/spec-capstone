@@ -1,5 +1,5 @@
 import React from 'react';
-import {useFormik} from 'formik'
+import {useFormik} from 'formik';
 import logo from '../travlLogoAB3.png';
 
 function Login() {

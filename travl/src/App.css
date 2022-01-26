@@ -257,13 +257,13 @@ button[type=submit]{
   margin: 20px;
 }
 
-.react-switch-checkbox {
+.location-switch-checkbox {
   height: 0;
   width: 0;
   visibility: hidden;
 }
 
-.react-switch-label {
+.location-switch-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -276,7 +276,7 @@ button[type=submit]{
   transition: background-color .2s;
 }
 
-.react-switch-label .react-switch-button {
+.location-switch-label .location-switch-button {
   content: '';
   position: absolute;
   top: 2px;
@@ -289,19 +289,64 @@ button[type=submit]{
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 
-.react-switch-checkbox:checked + .react-switch-label .react-switch-button {
+.location-switch-checkbox:checked + .location-switch-label .location-switch-button {
   left: calc(100% - 2px);
   transform: translateX(-100%);
 }
 
-.react-switch-label:active .react-switch-button {
+.location-switch-label:active .location-switch-button {
   width: 60px;
 }
 
-.react-switch-checkbox:checked + .react-switch-label {
+.location-switch-checkbox:checked + .location-switch-label {
   background: #06D6A0;
   }
 
+.notification-switch-checkbox {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+.notification-switch-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 45px;
+    height: 25px;
+    background: grey;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color .2s;
+  }
+  
+.notification-switch-label .notification-switch-button {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 45px;
+    transition: 0.2s;
+    background: #fff;
+    box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+  }
+  
+.notification-switch-checkbox:checked + .notification-switch-label .notification-switch-button {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+  }
+  
+.notification-switch-label:active .notification-switch-button {
+    width: 60px;
+  }
+  
+.notification-switch-checkbox:checked + .notification-switch-label {
+    background: #06D6A0;
+    }
+  
 
 .main-settings {
   display: flex;
@@ -309,7 +354,7 @@ button[type=submit]{
   width: 300px;
   height: 550px;
   border: 1pt solid black;
-  padding: 50px;
+  padding: 150px 50px 50px 50px;
   margin: 20px;
 
   /* display: inline-block; */
@@ -332,6 +377,8 @@ button[type=submit]{
   place-items: center;
   padding: 2px 10px 2px 10px;
   justify-content: space-between;
+  align-items: left;
+  width: 300px;
 
   /* border-radius: 50px;
   width: 80px;
@@ -356,10 +403,39 @@ button[type=submit]{
   margin: 10px; */
   }
 
+  .settings-logo {
+    width: 100%;
+    /* border-color: #282c34;
+    background-color: #61dafb; */
+    border-radius: 50%;
+    /* border: 1px solid; */
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    z-index: 2px;
+  }
+
+  .circle {
+    border-radius: 50%;
+    height: 125px;
+    width: 125px;
+    position: absolute;
+    left:20px;
+    top:20px;
+    z-index: 1;
+    
+  }
+
+  .icon-bar{
+    position: absolute;
+    left: 270px;
+    top:10px;
+
+  }
   .radius {
     border-radius: 50px;
     border-style: solid;
-    width: 250px;
+    width: 320px;
     height: 30px;
     border-color: black;
     border-width: 1px;
@@ -369,13 +445,14 @@ button[type=submit]{
   .settings-dropdown {
     flex-direction: row;
     justify-content: space-between;
+    /* background-color: rgb(238, 226, 226); */
     border-radius: 50px;
     border-style: solid;
     
     border-color: black;
     border-width: 4px;
-    width: 250px;
-    height:30px;
+    /* width: 300px;
+    height:30px; */
     border: none;
     text-align: center;
     color: black;
@@ -384,6 +461,7 @@ button[type=submit]{
     font-size: smaller;
     text-align: center;
     justify-content: center;
+    /* background-color: rgb(238, 226, 226); */
     align-items:center;
     margin: 10px;
   }
@@ -394,14 +472,21 @@ button[type=submit]{
     justify-content: space-between;
     border-radius: 50px;
     border-style: none;
-    /* background-color: rgb(238, 226, 226); */
+    background-color: rgb(238, 226, 226);
     border-color: none;
     
   }
 
-  /* span {
-    border-color: blue;
-    border-style: solid;
-    border-width: 1px;
-    
-  } */
+/* PROFILE PAGE CSS BELOW */
+
+.profile-logo {
+  width: 100%;
+  /* border-color: #282c34;
+  background-color: #61dafb; */
+  border-radius: 50%;
+  /* border: 1px solid; */
+  position: absolute;
+  left: 5px;
+  top: 0px;
+  z-index: 2px;
+}
