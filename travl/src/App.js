@@ -4,6 +4,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Settings from './components/Settings';
 import Profile from './components/Profile';
+import AddPoint from './components/AddPoint';
 
 
 import {Routes, Route } from 'react-router';
@@ -19,6 +20,7 @@ function App() {
         <Route path='signup' element={<SignUp />}/>
         <Route path='settings' element={<Settings />}/>
         <Route path='profile' element={<Profile />}/>
+        <Route path='addPoint' element={<AddPoint />}/>
       </Routes>
     
   
