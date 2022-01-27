@@ -3,7 +3,7 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 4000;
-const {sequelize} = require('./sequelize');
+const sequelize = require('./sequelize');
 const bcrypt = require('bcrypt')
 
 //middleware
@@ -32,12 +32,13 @@ app.post('/signup', async (req, res) => {
             '${passwordHash}'
         )
         `)
+
 //caching and keep username available on browser so you can greet user on page 'welcome username' etc
-        const userInfo = await sequelize.query(`
-            SELECT id, username, name FROM users WHERE username = '${username}
-        `)
-        res.status(200).send(userInfo)
-    }  
+    const userInfo = await sequelize.query(`
+        SELECT id, username, name FROM users WHERE username = '${username}
+    `)
+    res.status(200).send(userInfo)
+}  
 })
 app.post('/login', async (req, res) => {
     const {username, password} = req.body

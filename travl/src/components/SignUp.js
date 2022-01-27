@@ -1,37 +1,51 @@
 import React from 'react';
-import {useFormik} from 'formik'
+import {useFormik} from 'formik';
+import axios from 'axios'
 
 function SignUp() {
     const initialValues = {
         firstName: "",
         lastName: "",
+        email: "",
         username: "",
         password: "",
         confirmPassword: ""
     }
     const onSubmit = (values) => {
-        console.log(values)
+        axios.post('/signup', values)
+        .then((res) => {
+            console.log(res.data)
+        })
     }
     const validate = (values) => {
-        console.log('validation')
+        // console.log('validation')
+        const errors = {}
+        if(!values.firstName) {
+            errors.Name = "You gotta have a first name!"
+        }
+        if(!values.lastName) {
+            errors.lastName = "You gotta have a last name!"
+        }
+        if(!values.email) {
+            errors.email = "Please enter an email address"
+        // }  else if(!values.email.includes('@') &&!values.email.includes('.')){
+        //     errors.email = "Please enter a valid email address."
+        }
+        if(!values.username) {
+            errors.username = "Username Required"
+        }
+        if(!values.password) {
+            errors.password = "Password Required"
+        }  else if(values.password.length < 8){
+                errors.password = "Password must be longer than 8 characters."
+        }
+        if(!values.confirmPassword) {
+            errors.confirmPassword = "Please confirm password"
+        }   else if(values.password !== values.confirmPassword) {
+            errors.confirmPassword = "Passwords do not match"
+        }
+        return errors
     }
-//         if(!values.username) {
-//             errors.username = "Username Required"
-//         }
-//         if(!values.password) {
-//             errors.password = "Password Required"
-//         }  else if(values.password.length < 8){
-//                 errors.password = "Password must be longer than 8 characters."
-//         }
-//         if(!values.name) {
-//             errors.name = "You gotta have a name!"
-//         }
-//         if(!values.confirmPassword) {
-//             errors.confirmPassword = "Please confirm password"
-//         }
-//         else if(values.password !== values.confirmPassword) {
-//             errors.confirmPassword = "Passwords must match"
-//         }
 
     const formik = useFormik({
         initialValues,
@@ -46,7 +60,7 @@ function SignUp() {
          <input 
          type="text"
          className="form-control"
-         //name="first name"
+         name="firstName"
          onChange={formik.handleChange}
          value={formik.values.firstName}
          placeholder='first name'
@@ -57,7 +71,7 @@ function SignUp() {
          id="sign-up-last-name"
          type="text"
          className="form-control"
-         //name="last name"
+         name="lastName"
          onChange={formik.handleChange}
          value={formik.values.lastName}
          placeholder='last name'
@@ -65,9 +79,9 @@ function SignUp() {
          {/* </div>
          <div className='form-group'>  */}
          <input 
-         type="email"
+         type="text"
          className="form-control"
-         //name="email"
+         name="email"
          onChange={formik.handleChange}
          value={formik.values.email}
          placeholder='email'
@@ -77,7 +91,7 @@ function SignUp() {
          <input 
          type="text"
          className="form-control"
-         //name="username"
+         name="username"
          onChange={formik.handleChange}
          value={formik.values.username}
          placeholder='username'
@@ -87,7 +101,7 @@ function SignUp() {
          <input 
          type="password"
          className="form-control"
-         //name="password"
+         name="password"
          onChange={formik.handleChange}
          value={formik.values.password}
          placeholder='password'
@@ -97,16 +111,17 @@ function SignUp() {
          <input 
          type="password"
          className="form-control"
-         //name="Confirmpassword"
+         name="confirmPassword"
          onChange={formik.handleChange}
-         value={formik.values.password}
+         value={formik.values.confirmPassword}
          placeholder='confirm password'
          />
          {/* </div> */}
 
          <button type='submit' disabled={!formik.isValid}>create</button>
-         <h1 class="brand">Travl</h1>
+         <h1 className="brand">Travl</h1>
     </form>
+
     <div>
         {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
         {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}

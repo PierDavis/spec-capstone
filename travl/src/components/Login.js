@@ -52,7 +52,7 @@ function Login() {
             placeholder=' password'
             />
             </div>
-            <div class="inputhree">
+            <div className="inputhree">
             <button type='submit' disabled={!formik.isValid}>log in</button>
             </div>
         <h1 className="brand">Travl</h1>

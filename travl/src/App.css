@@ -159,6 +159,9 @@ button[type=log-in]{
   text-align: center;
   color: black
 }
+button:active {
+  background-color: #61dafb;
+}
 
 .forgot-password-text {
   font-size: smaller;
@@ -453,23 +456,25 @@ html, body {
 }
 
 #container {
-  margin: 10vh;
+  margin-top: 10vh;
   display: flex;
   flex-direction: row;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   flex-wrap: wrap;
-  align-items: stretch;
-  align-content: center;
+  /* align-items: stretch; */
+  /* align-content: center; */
   /* background-color: honeydew; */
   height: 60vh;
-  margin-bottom: 10vh;
-  margin-top: 15vh;
+  /* margin-bottom: 10vh; */
+  /* margin-top: 15vh; */
 }
 
 .red {
   width: 90vw;
   border: 1px solid red;
-  height: 50vh;
+  height: 80vh;
+  overflow: scroll;
+
 }
   
 .circlea {
@@ -496,9 +501,18 @@ html, body {
     
 
     .footer-bar {
-      flex: row;
-      width: 90vw;
-      border: 1px solid goldenrod
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      box-sizing: border-box;
+      border: 4px solid goldenrod;
+    }
+
+    .footer-bar img {
+      height: 65px;
     }
 
 /* 
