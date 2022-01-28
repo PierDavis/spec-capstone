@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import Settings from './components/Settings';
 import Profile from './components/Profile';
 import AddPoint from './components/AddPoint';
+import PointOfInterest from './components/PointOfInterest';
 
 
 import {Routes, Route } from 'react-router';
@@ -21,6 +22,7 @@ function App() {
         <Route path='settings' element={<Settings />}/>
         <Route path='profile' element={<Profile />}/>
         <Route path='addPoint' element={<AddPoint />}/>
+        <Route path='pointOfInterest' element={<PointOfInterest />}/>
       </Routes>
     
   
