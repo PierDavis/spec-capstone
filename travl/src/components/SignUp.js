@@ -1,8 +1,10 @@
 import React from 'react';
 import {useFormik} from 'formik';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp(props) {
+    let navigate = useNavigate();
     const initialValues = {
         firstName: "",
         lastName: "",
@@ -15,11 +17,12 @@ function SignUp() {
         axios.post('http://localhost:4000/signup', values)
         .then((res) => {
             console.log(res.data)
-            localStorage.setItem('firstName', res.data[0][0].firstName)
-            localStorage.setItem('lastName', res.data[0][0].lastName)
-            localStorage.setItem('email', res.data[0][0].email)
+            localStorage.setItem('firstName', res.data[0][0].first_name)
+            localStorage.setItem('lastName', res.data[0][0].last_name)
             localStorage.setItem('username', res.data[0][0].username)
-            localStorage.setItem('password', res.data[0][0].password)
+            localStorage.setItem('id', res.data[0][0].id)
+            props.logFunction()
+            navigate('/secret')
         })
         .catch((err) => console.log(err.response.data))
     }

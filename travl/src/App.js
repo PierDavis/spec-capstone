@@ -9,18 +9,27 @@ import PointOfInterest from './components/PointOfInterest';
 import Categories from './components/Categories';
 import MapPage from './components/MapPage';
 
-
 import {Routes, Route } from 'react-router';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import Dashboard from './components/Dashboard';
 
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const loginUser = () => 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const loginUser = () => setIsLoggedIn(!isLoggedIn)
+
+  useEffect(() => {
+    if(localStorage.getItem('id')) {
+      setIsLoggedIn(true)
+    }
+  }, [])
   return (
     <div className="Travl">
       <Routes>
+        <Route path='*' element={isLoggedIn ? <Dashboard /> : <Login logFunction={loginUser}/>} />
+
         <Route path='login' element={<Login />}/>
-        <Route path='signup' element={<SignUp />}/>
+        <Route path='signup' element={<SignUp logFunction={loginUser} />}/>
+        
         <Route path='settings' element={<Settings />}/>
         <Route path='profile' element={<Profile />}/>
         <Route path='addPoint' element={<AddPoint />}/>

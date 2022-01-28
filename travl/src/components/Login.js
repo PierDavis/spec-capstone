@@ -1,24 +1,31 @@
 import React from 'react';
 import {useFormik} from 'formik';
-import logo from '../travlLogoAB3.png';
+// import logo from '../travlLogoAB3.png';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login(props) {
+    let navigate = useNavigate();
     const initialValues = {
         username: "",
         password: ""
     }
     const onSubmit = (values) => {
-        console.log(values)
+        axios.post('http://localhost:4000/login', values)
+        .then((res) => {
+            localStorage.setItem('firstName', res.data.first_name)
+            localStorage.setItem('lastName', res.data.last_name)
+            localStorage.setItem('username', res.data.username)
+            localStorage.setItem('id', res.data.id)
+            props.logFunction()
+            navigate('/profile')
+        })
+        .catch((err) => {
+        console.log(err.response.data)
+        })
+        console.log('submit clicked')
     }
-    //     axios.post('/login', values)
-    //     .then((res) => {
-    //         console.log(res.data)
-    // })
-    //     .catch((err) => {
-    //     console.log(err.response.data)
-    //     //(finish here 5:20 PM - 80 mins into recording)
-    // }
-    //     console.log('submit clicked')
+    
     
     const validate = (values) => {
         console.log('validation')

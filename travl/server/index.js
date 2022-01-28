@@ -23,6 +23,7 @@ app.post('/signup', async (req, res) => {
     }   else {
         const salt = bcrypt.genSaltSync(10)
         const passwordHash = bcrypt.hashSync(password, salt)
+        console.log('this is a test')
         await sequelize.query(`
         INSERT INTO users(first_name, last_name, email, username, password)
         VALUES (
@@ -33,11 +34,11 @@ app.post('/signup', async (req, res) => {
             '${passwordHash}'
         )
         `)
-
 //caching and keep username available on browser so you can greet user on page 'welcome username' etc
     const userInfo = await sequelize.query(`
-        SELECT id, username, name FROM users WHERE username = '${username}'
+        SELECT id, first_name, last_name, username FROM users WHERE username = '${username}'
     `)
+    console.log('TEST TEST TEST')
     res.status(200).send(userInfo)
 }  
 })
@@ -45,10 +46,12 @@ app.post('/signup', async (req, res) => {
 app.post('/login', async (req, res) => {
     const {username, password} = req.body
     const validUser = await sequelize.query(`
-        SELECT * FROM users WHERE username = '${username}
-    `)
+        SELECT * FROM users WHERE username = '${username}'
+    `).catch((err) => console.log(err))
+    console.log(validUser)
+
     if(validUser[1].rowCount === 1) {
-        if(bcrypt.compareSync(password, validUser [0][0].password)) {
+        if(bcrypt.compareSync(password, validUser[0][0].password)) {
         let object = {
             id: validUser[0][0].id,
             name: validUser[0][0].name,
