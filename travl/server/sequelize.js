@@ -1,4 +1,6 @@
+require('dotenv').config();
 const {DATABASE_URL} = process.env;
+console.log(DATABASE_URL)
 const {Sequelize} = require('sequelize')
 
 const sequelize = new Sequelize(DATABASE_URL,

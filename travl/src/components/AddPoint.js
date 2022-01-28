@@ -1,5 +1,12 @@
 import React from 'react';
-import {useFormik} from 'formik'
+import {useFormik} from 'formik';
+import icon from '../icons/pen_icon.svg';
+import logo from '../icons/mini_logo.svg';
+import miniProfile from '../icons/top_miniprofile_icon.svg';
+import miniSettings from '../icons/top_minisettings_icon.svg';
+import globe from '../icons/globe_icon_small.svg';
+import pen from '../icons/pen_icon_small.svg';
+import tags from '../icons/tags_icon_small.svg';
 
 function AddPoint() {
     const initialValues = {
@@ -41,6 +48,15 @@ function AddPoint() {
 
     return <div className="main-point">
         
+        <div className='main'>
+            <div className='main-icon'>
+            <img src={logo} className="Travl-logo" alt="logo"/> 
+            <img src={icon} id="profile-logo" alt="profile icon"/>
+            <img src={miniProfile} id="icon-bar-1" alt="profile bar" />
+            <img src={miniSettings} id="icon-bar-2" alt="profile bar" />
+            </div>
+        </div>
+
         <form id='add-point-form' onSubmit={formik.handleSubmit}>
          {/* <div className='point-form-group'>  */}
          <input 
@@ -108,7 +124,11 @@ function AddPoint() {
         {formik.errors.password ? <div>{formik.errors.password}</div> : null}
         {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
     </div> */}
-
+    <div className='footer-bar'>
+            <img src={globe} className="globe-icon" alt="globe icon"/> 
+            <img src={pen} className="pen-icon" alt="pen icon"/>
+            <img src={tags} className="tags-icon" alt="tags icon"/>
+    </div>
     </div>;
     
 }

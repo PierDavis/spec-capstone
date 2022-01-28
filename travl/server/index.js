@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 4000;
 const sequelize = require('./sequelize');
 const bcrypt = require('bcrypt')
 
+
 //middleware
 app.use(express.json());
 app.use(cors());
@@ -17,13 +18,13 @@ app.post('/signup', async (req, res) => {
     SELECT * FROM users WHERE username = '${username}'
     `)
     console.log(checkUser)
-    if(checkUser[1].rowcount !== 0) {
+    if(checkUser[1].rowCount !== 0) {
         res.status(500).send('Username already exists')
     }   else {
         const salt = bcrypt.genSaltSync(10)
         const passwordHash = bcrypt.hashSync(password, salt)
         await sequelize.query(`
-        INSERT INTO users(first name, last name, email, username, password)
+        INSERT INTO users(first_name, last_name, email, username, password)
         VALUES (
             '${firstName}',
             '${lastName}',
@@ -35,11 +36,12 @@ app.post('/signup', async (req, res) => {
 
 //caching and keep username available on browser so you can greet user on page 'welcome username' etc
     const userInfo = await sequelize.query(`
-        SELECT id, username, name FROM users WHERE username = '${username}
+        SELECT id, username, name FROM users WHERE username = '${username}'
     `)
     res.status(200).send(userInfo)
 }  
 })
+
 app.post('/login', async (req, res) => {
     const {username, password} = req.body
     const validUser = await sequelize.query(`
@@ -65,4 +67,3 @@ sequelize.authenticate()
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

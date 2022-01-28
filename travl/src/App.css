@@ -276,9 +276,14 @@ button[type=submit]{
     z-index: 2;
   }
 
-  #icon-bar{
+  #icon-bar-1{
     width: 100%;
-    padding: 0px 0px 40px 110px;
+    padding: 0px 0px 40px 0px;
+  }
+
+  #icon-bar-2{
+    width: 100%;
+    padding: 0px 0px 40px 0px;
   }
 
 /* .setting-form {
@@ -471,7 +476,7 @@ html, body {
 
 .red {
   width: 90vw;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 80vh;
   overflow: scroll;
 
@@ -508,7 +513,7 @@ html, body {
       left: 0;
       width: 100vw;
       box-sizing: border-box;
-      border: 4px solid goldenrod;
+      border: 1px solid lightgray;
     }
 
     .footer-bar img {
@@ -527,7 +532,7 @@ ADD POINT OF INTEREST CSS BELOW */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20vh 10vw 0vh 10vw;
+  margin: 10vh 10vw 0vh 10vw;
   height: 90vw;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {useFormik} from 'formik';
-import axios from 'axios'
+import axios from 'axios';
 
 function SignUp() {
     const initialValues = {
@@ -12,10 +12,16 @@ function SignUp() {
         confirmPassword: ""
     }
     const onSubmit = (values) => {
-        axios.post('/signup', values)
+        axios.post('http://localhost:4000/signup', values)
         .then((res) => {
             console.log(res.data)
+            localStorage.setItem('firstName', res.data[0][0].firstName)
+            localStorage.setItem('lastName', res.data[0][0].lastName)
+            localStorage.setItem('email', res.data[0][0].email)
+            localStorage.setItem('username', res.data[0][0].username)
+            localStorage.setItem('password', res.data[0][0].password)
         })
+        .catch((err) => console.log(err.response.data))
     }
     const validate = (values) => {
         // console.log('validation')
@@ -28,8 +34,8 @@ function SignUp() {
         }
         if(!values.email) {
             errors.email = "Please enter an email address"
-        // }  else if(!values.email.includes('@') &&!values.email.includes('.')){
-        //     errors.email = "Please enter a valid email address."
+        }  else if(!values.email.includes('@') || !values.email.includes('.')){
+            errors.email = "Please enter a valid email address."
         }
         if(!values.username) {
             errors.username = "Username Required"
@@ -125,7 +131,8 @@ function SignUp() {
     <div>
         {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
         {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
-        {formik.errors.lastName ? <div>{formik.errors.email}</div> : null}
+        {formik.errors.email ? <div> 
+        {formik.errors.email} </div> : null}
         {formik.errors.username ? <div>{formik.errors.username}</div> : null}
         {formik.errors.password ? <div>{formik.errors.password}</div> : null}
         {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
