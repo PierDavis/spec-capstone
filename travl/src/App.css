@@ -593,6 +593,8 @@ POINT OF INTEREST CSS BELOW */
   margin: 5vh 10vw 10vw 10vw;
   height:66vh;
   overflow: scroll;
+  font-size: smaller;
+  
 }
 
 .point-name{
@@ -656,8 +658,7 @@ POINT OF INTEREST CSS BELOW */
       opacity: 80%;
 }
 
-/* 
-CATEGORIES CSS BELOW */
+/* CATEGORIES CSS BELOW */
 
 .category-icons {
   display: flex;
@@ -725,4 +726,23 @@ CATEGORIES CSS BELOW */
 .footer-bar img {
   height: 65px;
 }
+
+/* MAP PAGE CSS BELOW */
+
+/* .teal {
+  width: 90vw;
+  height: 30vh;
+  border: 1px solid teal;
+} */
+  
+.map {
+      margin: 3%;
+      width: 90vw;
+      height: 55vh;
+      border: 1px solid black;
+      background-color: rgb(238, 238, 238);
+      opacity: 80%;
 }
+
+}
+
