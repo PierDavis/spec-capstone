@@ -267,23 +267,26 @@ button[type=submit]{
   z-index: 0;
 }
   
-  #settings-logo {
+#settings-icon {
     width: 30%;
     /* border: 1px solid; */
     position: absolute;
     left: 5px;
     top: 0px;
     z-index: 2;
-  }
+}
 
   #icon-bar-1{
     width: 100%;
-    padding: 0px 0px 40px 0px;
+    padding: 0px 0px 0px 0px;
+    left: 0px;
+    border: 2px solid salmon;
   }
 
   #icon-bar-2{
     width: 100%;
-    padding: 0px 0px 40px 0px;
+    padding: 0px 0px 0px 0px;
+    border: 2px solid green;
   }
 
 /* .setting-form {
@@ -441,7 +444,7 @@ button[type=submit]{
 
 /* PROFILE PAGE CSS BELOW */
 
-#profile-logo  {
+#profile-icon  {
     width: 30%;
     position: absolute;
     left: 5px;
@@ -527,6 +530,13 @@ ADD POINT CSS BELOW */
   width: 100vw;
 }
 
+#pen-icon  {
+  width: 30%;
+  position: absolute;
+  left: 5px;
+  top: 0px;
+}
+
 #add-point-form {
   display: flex;
   flex-direction: column;
@@ -568,7 +578,7 @@ ADD POINT CSS BELOW */
 /* 
 POINT OF INTEREST CSS BELOW */
 
-#point-logo  {
+#point-icon  {
   width: 30%;
   position: absolute;
   left: 5px;
@@ -644,5 +654,75 @@ POINT OF INTEREST CSS BELOW */
       border-radius: 50%;
       background-color: rgb(238, 238, 238);
       opacity: 80%;
+}
+
+/* 
+CATEGORIES CSS BELOW */
+
+.category-icons {
+  display: flex;
+  flex-direction: row;
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+  left:0px;
+  top:0px;
+  z-index: 0;
+}
+
+#category-icon  {
+  width: 35%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.category-bar {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  /* left: 0; */
+  width: 90vw;
+  padding: 5px;
+  left: 5vw;
+  margin-top:20px;
+  box-sizing: border-box;
+  /* border: 1px solid purple; */
+}
+
+.category-bar img {
+  height: 35px;
+}
+
+.orange {
+  width: 80vw;
+  /* border: 1px solid orange; */
+  height: 80vh;
+  overflow: scroll;
+}
+  
+.circlec {
+      
+      margin: 3%;
+      width: 75vw;
+      padding-bottom: 75vw;
+      /* border: 1px solid black; */
+      border-radius: 50%;
+      background-color: rgb(238, 238, 238);
+      opacity: 80%;
+}
+.footer-bar {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+}
+
+.footer-bar img {
+  height: 65px;
 }
 }

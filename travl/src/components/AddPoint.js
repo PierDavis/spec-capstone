@@ -51,7 +51,7 @@ function AddPoint() {
         <div className='main'>
             <div className='main-icon'>
             <img src={logo} className="Travl-logo" alt="logo"/> 
-            <img src={icon} id="profile-logo" alt="profile icon"/>
+            <img src={icon} id="pen-icon" alt="profile icon"/>
             <img src={miniProfile} id="icon-bar-1" alt="profile bar" />
             <img src={miniSettings} id="icon-bar-2" alt="profile bar" />
             </div>

@@ -30,7 +30,7 @@ const Setting = ({ isOn, handleToggle }) => {
       
       <div className='main-icon'>
       {/* <div className='circle'></div> */}
-        <img src={icon} id="settings-logo" alt="settings icon" />
+        <img src={icon} id="settings-icon" alt="settings icon" />
         <img src={logo} className="Travl-logo" alt="logo" /> 
         <img src={miniProfile} id="icon-bar-1" alt="profile bar" />
         <img src={miniSettings} id="icon-bar-2" alt="profile bar" />

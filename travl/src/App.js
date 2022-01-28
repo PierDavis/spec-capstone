@@ -6,6 +6,7 @@ import Settings from './components/Settings';
 import Profile from './components/Profile';
 import AddPoint from './components/AddPoint';
 import PointOfInterest from './components/PointOfInterest';
+import Categories from './components/Categories';
 
 
 import {Routes, Route } from 'react-router';
@@ -23,6 +24,7 @@ function App() {
         <Route path='profile' element={<Profile />}/>
         <Route path='addPoint' element={<AddPoint />}/>
         <Route path='pointOfInterest' element={<PointOfInterest />}/>
+        <Route path='categories' element={<Categories />}/>
       </Routes>
     
   
