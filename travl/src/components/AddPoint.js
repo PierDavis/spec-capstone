@@ -1,5 +1,8 @@
 import React from 'react';
 import {useFormik} from 'formik';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 import icon from '../icons/pen_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -8,37 +11,48 @@ import globe from '../icons/globe_icon_small.svg';
 import pen from '../icons/pen_icon_small.svg';
 import tags from '../icons/tags_icon_small.svg';
 
-function AddPoint() {
+
+function AddPoint(props) {
+    let navigate = useNavigate();
     const initialValues = {
         pointName: "",
         location: "",
         category: "",
         imageFileUpload: "",
+        link: "",
         notes: ""
     }
     const onSubmit = (values) => {
+        axios.post('http://localhost:4000/addpoint', values)
         console.log(values)
+        .then((res) => {
+            console.log(res.data)
+            localStorage.setItem('pointName', res.data[0][0].point_name)
+            localStorage.setItem('location', res.data[0][0].location)
+            localStorage.setItem('category', res.data[0][0].category)
+            localStorage.setItem('imageFileUpload', res.data[0][0].imageFileUpload)
+            localStorage.setItem('link', res.data[0][0].link)
+            localStorage.setItem('notes', res.data[0][0].notes)
+            props.logFunction()
+            navigate('/pointofinterest')
+        })
+        .catch((err) => console.log(err.response.data))
     }
     const validate = (values) => {
-        console.log('validation')
+        // console.log('validation')
+        const errors = {}
+        if(!values.pointName) {
+            errors.pointName = "Please name your new point of interest"
+        }
+        if(!values.location) {
+            errors.location = "Please enter a location"
+        }
+        if(!values.category) {
+            errors.name = "Please select a category"
+        }
+        return errors
     }
-//         if(!values.username) {
-//             errors.username = "Username Required"
-//         }
-//         if(!values.password) {
-//             errors.password = "Password Required"
-//         }  else if(values.password.length < 8){
-//                 errors.password = "Password must be longer than 8 characters."
-//         }
-//         if(!values.name) {
-//             errors.name = "You gotta have a name!"
-//         }
-//         if(!values.confirmPassword) {
-//             errors.confirmPassword = "Please confirm password"
-//         }
-//         else if(values.password !== values.confirmPassword) {
-//             errors.confirmPassword = "Passwords must match"
-//         }
+        
 
     const formik = useFormik({
         initialValues,
@@ -52,8 +66,8 @@ function AddPoint() {
             <div className='main-icon'>
             <img src={logo} className="Travl-logo" alt="logo"/> 
             <img src={icon} id="pen-icon" alt="profile icon"/>
-            <img src={miniProfile} id="icon-bar-1" alt="profile bar" />
-            <img src={miniSettings} id="icon-bar-2" alt="profile bar" />
+            <img src={miniProfile} id="icon-bar-1" alt="icon bar" />
+            <img src={miniSettings} id="icon-bar-2" alt="icon bar" />
             </div>
         </div>
 
@@ -63,6 +77,7 @@ function AddPoint() {
          id='point-name'
          type="text"
          className="add-point"
+         name="addPoint"
          onChange={formik.handleChange}
          value={formik.values.firstName}
          placeholder='new point of interest'
@@ -72,6 +87,7 @@ function AddPoint() {
          id="location-coordinates"
          type="text"
          className="add-point"
+         name="location"
          onChange={formik.handleChange}
          value={formik.values.lastName}
          placeholder='location'
@@ -80,7 +96,7 @@ function AddPoint() {
          <input 
          type="text"
          className="add-point"
-         //name="email"
+         name="category"
          onChange={formik.handleChange}
          value={formik.values.email}
          placeholder='category'
@@ -89,7 +105,7 @@ function AddPoint() {
          <input 
          type="text"
          className="add-point"
-         //name="username"
+         name="imageFileUpload"
          onChange={formik.handleChange}
          value={formik.values.username}
          placeholder='image file upload'
@@ -98,7 +114,7 @@ function AddPoint() {
          <input 
          type="text"
          className="add-point"
-         //name="password"
+         name="link"
          onChange={formik.handleChange}
          value={formik.values.password}
          placeholder='link'
@@ -107,7 +123,7 @@ function AddPoint() {
          <input 
          type="text"
          className="add-point"
-         //name="Confirmpassword"
+         name="notes"
          onChange={formik.handleChange}
          value={formik.values.password}
          placeholder='notes'
@@ -116,14 +132,13 @@ function AddPoint() {
 
         <div className='save-button'> <button type='submit' disabled={!formik.isValid}>save</button></div>
     </form>
-    {/* <div>
-        {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
-        {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
-        {formik.errors.lastName ? <div>{formik.errors.email}</div> : null}
-        {formik.errors.username ? <div>{formik.errors.username}</div> : null}
-        {formik.errors.password ? <div>{formik.errors.password}</div> : null}
-        {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
-    </div> */}
+
+    <div>
+        {formik.errors.pointName ? <div>{formik.errors.pointName}</div> : null}
+        {formik.errors.location ? <div>{formik.errors.location}</div> : null}
+        {formik.errors.category ? <div>{formik.errors.category}</div> : null}
+    </div>
+
     <div className='footer-bar'>
             <img src={globe} className="globe-icon" alt="globe icon"/> 
             <img src={pen} className="pen-icon" alt="pen icon"/>

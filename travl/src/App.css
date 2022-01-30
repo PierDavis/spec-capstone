@@ -277,16 +277,20 @@ button[type=submit]{
 }
 
   #icon-bar-1{
-    width: 100%;
+    position: relative;
+    width: 40%;
     padding: 0px 0px 0px 0px;
-    left: 0px;
-    border: 2px solid salmon;
+    margin: 0px;
+    left: 32vw;
+    /* border: 2px solid salmon; */
   }
 
   #icon-bar-2{
-    width: 100%;
+    position: relative;
+    width: 40%;
     padding: 0px 0px 0px 0px;
-    border: 2px solid green;
+    left: 35vw;
+    /* border: 2px solid green; */
   }
 
 /* .setting-form {

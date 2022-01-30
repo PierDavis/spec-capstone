@@ -22,7 +22,7 @@ function SignUp(props) {
             localStorage.setItem('username', res.data[0][0].username)
             localStorage.setItem('id', res.data[0][0].id)
             props.logFunction()
-            navigate('/secret')
+            navigate('/login')
         })
         .catch((err) => console.log(err.response.data))
     }

@@ -43,6 +43,31 @@ app.post('/signup', async (req, res) => {
 }  
 })
 
+app.post('/addpoint', async (req, res) => {
+    const {pointName, location, category, imageFileUpload, link, notes} = req.body
+    const addNewPoint = await sequelize.query(`
+    SELECT * FROM point_of_interest WHERE title = '${pointName}'
+    `)
+    console.log(addNewPoint)
+    if(addNewPoint[1].rowCount !== 0) {
+        res.status(500).send('Point of Interest already exists')
+    }   else {
+        console.log('this is a test')
+        await sequelize.query(`
+        INSERT INTO point_of_interest(title, coordinates, category, link, photo, notes)
+        VALUES (
+            '${pointName}',
+            '${location}',
+            '${category}',
+            '${link}',
+            '${imageFileUpload}',
+            '${notes}'
+        )
+        `)
+    }
+})
+
+
 app.post('/login', async (req, res) => {
     const {username, password} = req.body
     const validUser = await sequelize.query(`
