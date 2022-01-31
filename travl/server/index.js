@@ -44,7 +44,7 @@ app.post('/signup', async (req, res) => {
 })
 
 app.post('/addpoint', async (req, res) => {
-    const {pointName, location, category, imageFileUpload, link, notes} = req.body
+    const {pointName, location, category, imageUpload, link, notes} = req.body
     const addNewPoint = await sequelize.query(`
     SELECT * FROM point_of_interest WHERE title = '${pointName}'
     `)
@@ -60,7 +60,7 @@ app.post('/addpoint', async (req, res) => {
             '${location}',
             '${category}',
             '${link}',
-            '${imageFileUpload}',
+            '${imageUpload}',
             '${notes}'
         )
         `)
@@ -79,7 +79,8 @@ app.post('/login', async (req, res) => {
         if(bcrypt.compareSync(password, validUser[0][0].password)) {
         let object = {
             id: validUser[0][0].id,
-            name: validUser[0][0].name,
+            first_name: validUser[0][0].first_name,
+            last_name: validUser[0][0].last_name,
             username
         }
         res.status(200).send(object)

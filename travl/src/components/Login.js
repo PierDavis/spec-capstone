@@ -17,7 +17,7 @@ function Login(props) {
             localStorage.setItem('lastName', res.data.last_name)
             localStorage.setItem('username', res.data.username)
             localStorage.setItem('id', res.data.id)
-            props.logFunction()
+            // props.logFunction()
             navigate('/profile')
         })
         .catch((err) => {

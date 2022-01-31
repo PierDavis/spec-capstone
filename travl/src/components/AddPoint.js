@@ -18,7 +18,7 @@ function AddPoint(props) {
         pointName: "",
         location: "",
         category: "",
-        imageFileUpload: "",
+        imageUpload: "",
         link: "",
         notes: ""
     }
@@ -30,7 +30,7 @@ function AddPoint(props) {
             localStorage.setItem('pointName', res.data[0][0].point_name)
             localStorage.setItem('location', res.data[0][0].location)
             localStorage.setItem('category', res.data[0][0].category)
-            localStorage.setItem('imageFileUpload', res.data[0][0].imageFileUpload)
+            localStorage.setItem('imageUpload', res.data[0][0].imageUpload)
             localStorage.setItem('link', res.data[0][0].link)
             localStorage.setItem('notes', res.data[0][0].notes)
             props.logFunction()
@@ -77,9 +77,9 @@ function AddPoint(props) {
          id='point-name'
          type="text"
          className="add-point"
-         name="addPoint"
+         name="pointName"
          onChange={formik.handleChange}
-         value={formik.values.firstName}
+         value={formik.values.pointName}
          placeholder='new point of interest'
          />
          
@@ -93,21 +93,33 @@ function AddPoint(props) {
          placeholder='location'
          />
          
-         <input 
+         {/* <input 
          type="text"
          className="add-point"
          name="category"
          onChange={formik.handleChange}
          value={formik.values.email}
          placeholder='category'
-         />
-         
+         /> */}
+
+        <div className='categories'>
+        <label for='dropdown'>category</label> 
+        <select className='category-dropdown' id='categories'>
+        <option disabled selected value> </option>
+        <option value='sightseeing'>sightseeing</option>
+        <option value='food'>food and drink</option>
+        <option value='architecture'>architecture</option>
+        <option value='active'>active</option>
+        <option value='historical'>historical</option>
+        </select>
+         </div>
+
          <input 
          type="text"
          className="add-point"
-         name="imageFileUpload"
+         name="imageUpload"
          onChange={formik.handleChange}
-         value={formik.values.username}
+         value={formik.values.image}
          placeholder='image file upload'
          />
          
@@ -116,7 +128,7 @@ function AddPoint(props) {
          className="add-point"
          name="link"
          onChange={formik.handleChange}
-         value={formik.values.password}
+         value={formik.values.link}
          placeholder='link'
          />
          
@@ -125,7 +137,7 @@ function AddPoint(props) {
          className="add-point"
          name="notes"
          onChange={formik.handleChange}
-         value={formik.values.password}
+         value={formik.values.notes}
          placeholder='notes'
          />
         

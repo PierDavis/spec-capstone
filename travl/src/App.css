@@ -336,12 +336,10 @@ button[type=submit]{
   border-radius: 50px;
   text-align: left;
   font-size: smaller;
-  
   border: 1px solid black;
   height: 25px;
   width: 300px;
   padding: 2px 10px 2px 10px;
-  
 }
 
   .dropdown {
@@ -546,29 +544,70 @@ ADD POINT CSS BELOW */
   flex-direction: column;
   align-items: center;
   margin: 10vh 10vw 0vh 10vw;
-  height: 90vw;
+  height: 100vw;
+  
 }
 
 #add-point-form input {
-  margin: 5px;
-  width: 300px;
+  margin: 10px;
+  width: 250px;
+  height: 30px;
+  border: 1px solid black;
 }
+
 .add-point {
   color: black;
   /* text-transform: uppercase; */
-  border-color: black;
+  /* border-color: black; */
   border-width: 1px;
   text-align: left;
   padding: 2px 10px 2px 10px;
   border-radius: 50px;
   width: 200px;
   height: 27px;
-  border-spacing: 5px;
+  /* border-spacing: 5px; */
 }
 
-::placeholder {
-  color: black;
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  text-align: left;
+  font-size: smaller;
+  border: 1px solid black;
+  height: 30px;
+  width: 250px;
+  padding: 2px 10px 2px 10px;
+  margin: 5px;
 }
+
+#categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  text-align: left;
+  font-size: smaller;
+  /* border: 1px solid greenyellow; */
+  border-style:none;
+  height: 18px;
+  width: 200px;
+  padding: 2px 10px 2px 10px;
+  margin-left: 10px;
+}
+
+/* .category-dropdown {
+  display:inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 50px;
+  border-style: none;
+  background-color: white;
+  border: 1px solid hotpink;
+} */
+
 
 .save-button{
   right: 10px;
@@ -577,6 +616,10 @@ ADD POINT CSS BELOW */
   text-align: center;
   color: black;
   margin: 10px;
+}
+
+button:active {
+  background-color: #61dafb;
 }
 
 /* 
