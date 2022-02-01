@@ -17,8 +17,8 @@ function Profile() {
             <img src={logo} className="Travl-logo" alt="logo"/> 
             <img src={icon} id="profile-icon" alt="profile icon"/>
             <img src={miniProfile} id="icon-bar-1" alt="profile icon" />
-            <NavLink id='settings-container' to='/settings'>
-            <img src={miniSettings} id="icon-bar-2" alt="settings icon" /> </NavLink>
+            {/* <a href='/settings' className='settings-container'> */}
+            <img src={miniSettings} id="icon-bar-2" alt="settings icon" />
             </div>
         
             

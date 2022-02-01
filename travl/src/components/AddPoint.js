@@ -25,15 +25,15 @@ function AddPoint(props) {
     }
     const onSubmit = (values) => {
         axios.post('http://localhost:4000/addpoint', values)
-        console.log(values)
+        // console.log(values)
         .then((res) => {
             console.log(res.data)
-            localStorage.setItem('pointName', res.data[0][0].point_name)
-            localStorage.setItem('location', res.data[0][0].location)
-            localStorage.setItem('category', res.data[0][0].category)
-            localStorage.setItem('imageUpload', res.data[0][0].imageUpload)
-            localStorage.setItem('link', res.data[0][0].link)
-            localStorage.setItem('notes', res.data[0][0].notes)
+            // localStorage.setItem('pointName', res.data[0][0].point_name)
+            // localStorage.setItem('location', res.data[0][0].location)
+            // localStorage.setItem('category', res.data[0][0].category)
+            // localStorage.setItem('imageUpload', res.data[0][0].imageUpload)
+            // localStorage.setItem('link', res.data[0][0].link)
+            // localStorage.setItem('notes', res.data[0][0].notes)
             props.logFunction()
             navigate('/pointofinterest')
         })
@@ -60,6 +60,9 @@ function AddPoint(props) {
         onSubmit,
         validate
 })
+    function navToSettings(){
+        navigate('/settings')
+    }
 
     return <div className="main-point">
         
@@ -68,7 +71,10 @@ function AddPoint(props) {
             <img src={logo} className="Travl-logo" alt="logo"/> 
             <img src={icon} id="pen-icon" alt="profile icon"/>
             <img src={miniProfile} id="icon-bar-1" alt="icon bar" />
-            <img src={miniSettings} id="icon-bar-2" alt="icon bar" />
+            <img 
+                src='miniSettings' 
+                id="icon-bar-2" alt="icon bar" onClick={ navToSettings } 
+            />
             </div>
         </div>
 

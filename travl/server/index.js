@@ -4,7 +4,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 4000;
 const sequelize = require('./sequelize');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const { default: axios } = require('axios');
 
 
 //middleware
@@ -96,3 +97,22 @@ sequelize.authenticate()
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
+// //profile.js
+// function getInfoFromDB() {
+//     let body = {
+//         id:localStorage.getItem('id')
+//     }
+//     axios.get(`/getinfo/${localStorage.getItem('id')``})
+// }
+// localhost:4000/getInfo/1 (what endpt will look like in browser)
+
+// //index.js
+// app.get('/getInfo/:id, asynch (req, res) => {
+//     let id = req.query
+//     let allPoints = sequelize.query(`
+//     SELECT * FROM point_of_interest
+// WHERE user_id = ${access local storage user id}
+// `)
+// })
+
+// //on front end handle that inside my .then
