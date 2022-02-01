@@ -2,7 +2,7 @@ import React from 'react';
 import {useFormik} from 'formik';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-
+import { NavLink } from 'react-router-dom';
 import icon from '../icons/pen_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -10,6 +10,7 @@ import miniSettings from '../icons/top_minisettings_icon.svg';
 import globe from '../icons/globe_icon_small.svg';
 import pen from '../icons/pen_icon_small.svg';
 import tags from '../icons/tags_icon_small.svg';
+
 
 
 function AddPoint(props) {
@@ -89,7 +90,7 @@ function AddPoint(props) {
          className="add-point"
          name="location"
          onChange={formik.handleChange}
-         value={formik.values.lastName}
+         value={formik.values.location}
          placeholder='location'
          />
          
@@ -98,29 +99,31 @@ function AddPoint(props) {
          className="add-point"
          name="category"
          onChange={formik.handleChange}
-         value={formik.values.email}
+         value={formik.values.category}
          placeholder='category'
          /> */}
 
         <div className='categories'>
         <label for='dropdown'>category</label> 
-        <select className='category-dropdown' id='categories'>
+        <select name='category' className='category-dropdown' id='categories'
+        onChange={formik.handleChange}
+        value={formik.values.category}>
         <option disabled selected value> </option>
-        <option value='sightseeing'>sightseeing</option>
-        <option value='food'>food and drink</option>
-        <option value='architecture'>architecture</option>
-        <option value='active'>active</option>
-        <option value='historical'>historical</option>
+        <option value='1'>sightseeing</option>
+        <option value='2'>food and drink</option>
+        <option value='3'>architecture</option>
+        <option value='4'>active</option>
+        <option value='5'>historical</option>
         </select>
-         </div>
+        </div>
 
          <input 
          type="text"
          className="add-point"
          name="imageUpload"
          onChange={formik.handleChange}
-         value={formik.values.image}
-         placeholder='image file upload'
+         value={formik.values.imageUpload}
+         placeholder='image link upload'
          />
          
          <input 
@@ -129,7 +132,7 @@ function AddPoint(props) {
          name="link"
          onChange={formik.handleChange}
          value={formik.values.link}
-         placeholder='link'
+         placeholder='reference link'
          />
          
          <input 
@@ -152,9 +155,15 @@ function AddPoint(props) {
     </div>
 
     <div className='footer-bar'>
-            <img src={globe} className="globe-icon" alt="globe icon"/> 
+    <NavLink id='globe-container' to='/mappage'>
+            <img src={globe} 
+            className="globe-icon" alt="globe icon"/> 
+            </NavLink>
+            <NavLink id='pen-container' to='/addpoint'>
             <img src={pen} className="pen-icon" alt="pen icon"/>
-            <img src={tags} className="tags-icon" alt="tags icon"/>
+            </NavLink>
+            <NavLink id='tags-container' to='/categories'><img src={tags} className="tags-icon" alt="tags icon"/>
+            </NavLink>
     </div>
     </div>;
     

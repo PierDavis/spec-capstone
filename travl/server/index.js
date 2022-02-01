@@ -54,7 +54,7 @@ app.post('/addpoint', async (req, res) => {
     }   else {
         console.log('this is a test')
         await sequelize.query(`
-        INSERT INTO point_of_interest(title, coordinates, category, link, photo, notes)
+        INSERT INTO point_of_interest(title, coordinates, category_id, link, photo, notes)
         VALUES (
             '${pointName}',
             '${location}',

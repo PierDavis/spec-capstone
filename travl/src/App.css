@@ -274,6 +274,7 @@ button[type=submit]{
     left: 5px;
     top: 0px;
     z-index: 2;
+    
 }
 
   #icon-bar-1{
@@ -285,12 +286,31 @@ button[type=submit]{
     /* border: 2px solid salmon; */
   }
 
+.main-icon a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 40px;
+  background-color:lightskyblue
+}
+
+#settings-container {
+  position: relative;
+  left: 35vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 40px;
+}
+
   #icon-bar-2{
     position: relative;
     width: 40%;
     padding: 0px 0px 0px 0px;
     left: 35vw;
-    /* border: 2px solid green; */
+    border: 2px solid green;
   }
 
 /* .setting-form {
@@ -772,6 +792,10 @@ POINT OF INTEREST CSS BELOW */
 
 .footer-bar img {
   height: 65px;
+}
+
+.globe-icon:active {
+  background-color: #61dafb;
 }
 
 /* MAP PAGE CSS BELOW */

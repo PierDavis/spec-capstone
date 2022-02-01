@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import point from '../icons/point_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -6,6 +7,7 @@ import miniSettings from '../icons/top_minisettings_icon.svg';
 import globe from '../icons/globe_icon_small.svg';
 import pen from '../icons/pen_icon_small.svg';
 import tags from '../icons/tags_icon_small.svg';
+
 
 function PointOfInterest() {
     return <div className="selectedPoint">

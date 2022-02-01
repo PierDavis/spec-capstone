@@ -3,6 +3,7 @@ import icon from '../icons/settings_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
 import miniSettings from '../icons/top_minisettings_icon.svg';
+import { NavLink } from 'react-router-dom';
 //import React, { Component } from "react";
 //import Switch from "react-switch";
 

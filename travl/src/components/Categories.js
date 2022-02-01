@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import icon from '../icons/category_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -40,9 +41,15 @@ function Categories() {
             </div> 
         </div>
         <div className='footer-bar'>
-                <img src={globe} className="globe-icon" alt="globe icon"/> 
-                <img src={pen} className="pen-icon" alt="pen icon"/>
-                <img src={tags} className="tags-icon" alt="tags icon"/>
+            <NavLink id='globe-container' to='/mappage'>
+            <img src={globe} 
+            className="globe-icon" alt="globe icon"/> 
+            </NavLink>
+            <NavLink id='pen-container' to='/addpoint'>
+            <img src={pen} className="pen-icon" alt="pen icon"/>
+            </NavLink>
+            <NavLink id='tags-container' to='/categories'><img src={tags} className="tags-icon" alt="tags icon"/>
+            </NavLink>
         </div>
     </div>
     
