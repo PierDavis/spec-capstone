@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 import icon from '../icons/profile_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -6,21 +9,34 @@ import miniSettings from '../icons/top_minisettings_icon.svg';
 import globe from '../icons/globe_icon_small.svg';
 import pen from '../icons/pen_icon_small.svg';
 import tags from '../icons/tags_icon_small.svg';
-import { NavLink } from 'react-router-dom';
+
+
 
 
 function Profile() {
+    function getInfoFromDB(){
+        console.log(localStorage.getItem('id'))
+        axios.get(`http://localhost:4000/getInfo/${localStorage.getItem('id')}`)
+        .then(res => console.log(res.data))    
+    }
+    
+    useEffect(() => {
+        getInfoFromDB()
+      }, [])
+
     return (
     <div className='wrapper'>
         
-            <div className='main-icon'>
+            <div className='profile-page-icons'>
+            
             <img src={logo} className="Travl-logo" alt="logo"/> 
             <img src={icon} id="profile-icon" alt="profile icon"/>
-            <img src={miniProfile} id="icon-bar-1" alt="profile icon" />
+            <div id='username'><p>'username'</p></div>
+            <img src={miniProfile} id="profile-icon-bar-1" alt="profile icon" />
             {/* <a href='/settings' className='settings-container'> */}
-            <img src={miniSettings} id="icon-bar-2" alt="settings icon" />
+            <img src={miniSettings} id="profile-icon-bar-2" alt="settings icon" />
             </div>
-        
+    
             
     <div className='main-settings'>
         <div id='container' className="red">
@@ -53,8 +69,9 @@ function Profile() {
             </NavLink>
     </div>
 </div>
-
     )
 }
+
+
 
 export default Profile

@@ -3,6 +3,7 @@ import {useFormik} from 'formik';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
+
 import icon from '../icons/pen_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -21,20 +22,16 @@ function AddPoint(props) {
         category: "",
         imageUpload: "",
         link: "",
-        notes: ""
+        notes: "",
+        id: localStorage.getItem('id')
     }
     const onSubmit = (values) => {
         axios.post('http://localhost:4000/addpoint', values)
         // console.log(values)
         .then((res) => {
             console.log(res.data)
-            // localStorage.setItem('pointName', res.data[0][0].point_name)
-            // localStorage.setItem('location', res.data[0][0].location)
-            // localStorage.setItem('category', res.data[0][0].category)
-            // localStorage.setItem('imageUpload', res.data[0][0].imageUpload)
-            // localStorage.setItem('link', res.data[0][0].link)
-            // localStorage.setItem('notes', res.data[0][0].notes)
-            props.logFunction()
+          
+            // props.logFunction()
             navigate('/pointofinterest')
         })
         .catch((err) => console.log(err.response.data))
@@ -114,7 +111,7 @@ function AddPoint(props) {
         <select name='category' className='category-dropdown' id='categories'
         onChange={formik.handleChange}
         value={formik.values.category}>
-        <option disabled selected value> </option>
+        <option defaultValue> </option>
         <option value='1'>sightseeing</option>
         <option value='2'>food and drink</option>
         <option value='3'>architecture</option>

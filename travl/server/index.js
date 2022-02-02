@@ -45,7 +45,7 @@ app.post('/signup', async (req, res) => {
 })
 
 app.post('/addpoint', async (req, res) => {
-    const {pointName, location, category, imageUpload, link, notes} = req.body
+    const {pointName, location, category, imageUpload, link, notes, id} = req.body
     const addNewPoint = await sequelize.query(`
     SELECT * FROM point_of_interest WHERE title = '${pointName}'
     `)
@@ -55,19 +55,19 @@ app.post('/addpoint', async (req, res) => {
     }   else {
         console.log('this is a test')
         await sequelize.query(`
-        INSERT INTO point_of_interest(title, coordinates, category_id, link, photo, notes)
+        INSERT INTO point_of_interest(title, coordinates, category_id, link, photo, notes, user_id)
         VALUES (
             '${pointName}',
             '${location}',
             '${category}',
             '${link}',
             '${imageUpload}',
-            '${notes}'
+            '${notes}',
+            '${id}'
         )
         `)
     }
 })
-
 
 app.post('/login', async (req, res) => {
     const {username, password} = req.body
@@ -93,10 +93,6 @@ app.post('/login', async (req, res) => {
 }
 })
 
-sequelize.authenticate()
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
 // //profile.js
 // function getInfoFromDB() {
 //     let body = {
@@ -107,12 +103,27 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 // localhost:4000/getInfo/1 (what endpt will look like in browser)
 
 // //index.js
-// app.get('/getInfo/:id, asynch (req, res) => {
-//     let id = req.query
-//     let allPoints = sequelize.query(`
-//     SELECT * FROM point_of_interest
-// WHERE user_id = ${access local storage user id}
-// `)
-// })
+//for profile page:
+app.get('/getInfo/:id', async (req, res) => {
+    let {id} = req.params
+    let allPoints = await sequelize.query(`
+    SELECT * FROM point_of_interest WHERE user_id = ${id}
+`)
+res.status(200).send(allPoints)
+})
+
+//POINT OF INTEREST PAGE
+app.get('/getPoint/:id', async (req, res) => {
+    let id = req.params
+    let newPoint = await sequelize.query(`
+    SELECT * FROM point_of_interest WHERE user_id = ${id}
+`)
+res.status(200).send(newPoint)
+})
 
 // //on front end handle that inside my .then
+
+
+sequelize.authenticate()
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

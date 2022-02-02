@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 import point from '../icons/point_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -9,7 +11,19 @@ import pen from '../icons/pen_icon_small.svg';
 import tags from '../icons/tags_icon_small.svg';
 
 
+
 function PointOfInterest() {
+    const [pointOne, setPoint] = useState([])
+    function getInfoFromDB(){
+        console.log(localStorage.getItem('id'))
+        axios.get(`http://localhost:4000/getInfo/${localStorage.getItem('id')}`)
+        .then(res => setPoint(res.data[0][4]))    
+    }
+    console.log(pointOne)
+    useEffect(() => {
+        getInfoFromDB()
+      }, [])
+
     return <div className="selectedPoint">
         
         <div>
@@ -24,22 +38,28 @@ function PointOfInterest() {
         <form id='point-of-interest-form'>
         <div id='point-container' className="blue">
             <div id='point-name' className="point-name">
-                point of interest
+                {/* point of interest */}
+                {pointOne.title}
             </div>
 
             <div id='location_coordinates' className="point-location">
-                point of interest location
+                {/* point of interest location */}
+                {pointOne.coordinates}
             </div>
 
             <div id='point-category' className="point-category">
-                point category
+                {/* point category */}
+                {pointOne.category_id}
             </div>
 
             <div id='point-notes' className="point-notes">
-                point of interest notes
+                {/* point of interest notes */}
+                {pointOne.notes}
             </div>
             
-            <div className="circleb"></div>
+            <div className="circleb">
+            <img src={pointOne.photo} className='poi-image'></img>
+            </div>
             </div>
     
         
@@ -53,5 +73,7 @@ function PointOfInterest() {
     </div>;
     
 }
+
+
 
 export default PointOfInterest;

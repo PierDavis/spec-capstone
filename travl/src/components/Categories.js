@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 import icon from '../icons/category_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
@@ -55,5 +57,10 @@ function Categories() {
     
         )
     }
+
+    // function getInfoFromDB() {
+//     axios.get(`/getInfo/${localStorage.getItem('category')}`)
+//     .then
+// }
 
 export default Categories;
