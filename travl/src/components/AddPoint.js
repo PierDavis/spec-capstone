@@ -31,7 +31,7 @@ function AddPoint(props) {
         .then((res) => {
             console.log(res.data)
           
-            // props.logFunction()
+            props.logFunction()
             navigate('/pointofinterest')
         })
         .catch((err) => console.log(err.response.data))

@@ -9,19 +9,20 @@ import miniSettings from '../icons/top_minisettings_icon.svg';
 import globe from '../icons/globe_icon_small.svg';
 import pen from '../icons/pen_icon_small.svg';
 import tags from '../icons/tags_icon_small.svg';
+import POICard from './POICard';
 
 
 
 
 function Profile() {
-    const [pointOne, setPoint] = useState([])
+    const [allPoints, setPoint] = useState([])
     function getInfoFromDB(){
         console.log(localStorage.getItem('id'))
         axios.get(`http://localhost:4000/getInfo/${localStorage.getItem('id')}`)
-        .then(res => setPoint(res.data[0][0])) 
+        .then(res => setPoint(res.data[0])) 
     }
     
-    console.log(pointOne)
+    console.log(allPoints)
     useEffect(() => {
         getInfoFromDB()
       }, [])
@@ -34,8 +35,8 @@ function Profile() {
             
             <img src={logo} className="Travl-logo" alt="logo"/> 
             <img src={icon} id="profile-icon" alt="profile icon"/>
-            <div id='username'><p>'username'
-            {pointOne.username} </p> </div>
+            <p id='username'>
+            {localStorage.getItem('username')} </p>
 
             <img src={miniProfile} id="profile-icon-bar-1" alt="profile icon" />
             {/* <a href='/settings' className='settings-container'> */}
@@ -45,6 +46,10 @@ function Profile() {
             
     <div className='main-settings'>
         <div id='container' className="red">
+            {!allPoints ? null : allPoints.map((element)=> {
+                return <POICard info = {element} />
+            })}
+            {/* <div className="circlea"></div>
             <div className="circlea"></div>
             <div className="circlea"></div>
             <div className="circlea"></div>
@@ -58,8 +63,7 @@ function Profile() {
             <div className="circlea"></div>
             <div className="circlea"></div>
             <div className="circlea"></div>
-            <div className="circlea"></div>
-            <div className="circlea"></div>
+            <div className="circlea"></div> */}
         </div> 
     </div>
     <div className='footer-bar'>

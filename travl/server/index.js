@@ -59,11 +59,11 @@ app.post('/addpoint', async (req, res) => {
         VALUES (
             '${pointName}',
             '${location}',
-            '${category}',
+            ${category},
             '${link}',
             '${imageUpload}',
             '${notes}',
-            '${id}'
+            ${id}
         )
         `)
     }
@@ -114,9 +114,11 @@ res.status(200).send(allPoints)
 
 //POINT OF INTEREST PAGE
 app.get('/getPoint/:id', async (req, res) => {
-    let id = req.params
+    let {id} = req.params
     let newPoint = await sequelize.query(`
-    SELECT * FROM point_of_interest WHERE user_id = ${id}
+    SELECT * FROM point_of_interest 
+    JOIN category ON point_of_interest.category_id = category.id
+    WHERE point_of_interest.user_id = ${id}
 `)
 res.status(200).send(newPoint)
 })

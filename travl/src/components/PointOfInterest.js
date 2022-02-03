@@ -16,7 +16,7 @@ function PointOfInterest() {
     const [pointOne, setPoint] = useState([])
     function getInfoFromDB(){
         console.log(localStorage.getItem('id'))
-        axios.get(`http://localhost:4000/getInfo/${localStorage.getItem('id')}`)
+        axios.get(`http://localhost:4000/getPoint/${localStorage.getItem('id')}`)
         .then(res => setPoint(res.data[0][0])) 
     }
     
@@ -41,31 +41,31 @@ function PointOfInterest() {
         <form id='point-of-interest-form'>
         <div id='point-container' className="blue">
             <div id='point-name' className="point-name">
-                point of interest
+                {/* point of interest */}
                 {pointOne.title}
                 
             </div>
 
             <div id='location_coordinates' className="point-location">
-                point of interest location
+                {/* point of interest location */}
                 {pointOne.coordinates}
             </div>
 
             <div id='point-category' className="point-category">
-                point category
-                {pointOne.category_id}
+                {/* point category */}
+                {pointOne.name}
             </div>
 
             <div id='point-notes' className="point-notes">
-                point of interest notes
+                {/* point of interest notes */}
                 {pointOne.notes}
             </div>
             
             <div className="circleb">
-            <img src={pointOne.photo} className='poi-image'></img>
+            <img src={pointOne.photo} className='poi-image' alt='visual point of interest'></img>
             </div>
             
-            </div>
+        </div>
     
         
         </form>
