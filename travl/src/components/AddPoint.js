@@ -57,8 +57,8 @@ function AddPoint(props) {
         onSubmit,
         validate
 })
-    function navToSettings(){
-        navigate('/settings')
+    function navToPOI(){
+        navigate('/pointofinterest')
     }
 
     return <div className="main-point">
@@ -66,11 +66,11 @@ function AddPoint(props) {
         <div className='main'>
             <div className='main-icon'>
             <img src={logo} className="Travl-logo" alt="logo"/> 
+            <NavLink to='/profile'>
             <img src={icon} id="pen-icon" alt="profile icon"/>
+            </NavLink>
             <img src={miniProfile} id="icon-bar-1" alt="icon bar" />
-            <img 
-                src='miniSettings' 
-                id="icon-bar-2" alt="icon bar" onClick={ navToSettings } 
+            <img src={miniSettings} id="icon-bar-2" alt="icon bar"
             />
             </div>
         </div>

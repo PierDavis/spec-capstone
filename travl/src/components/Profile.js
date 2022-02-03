@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
@@ -14,16 +14,19 @@ import tags from '../icons/tags_icon_small.svg';
 
 
 function Profile() {
+    const [pointOne, setPoint] = useState([])
     function getInfoFromDB(){
         console.log(localStorage.getItem('id'))
         axios.get(`http://localhost:4000/getInfo/${localStorage.getItem('id')}`)
-        .then(res => console.log(res.data))    
+        .then(res => setPoint(res.data[0][0])) 
     }
     
+    console.log(pointOne)
     useEffect(() => {
         getInfoFromDB()
       }, [])
 
+      
     return (
     <div className='wrapper'>
         
@@ -31,7 +34,9 @@ function Profile() {
             
             <img src={logo} className="Travl-logo" alt="logo"/> 
             <img src={icon} id="profile-icon" alt="profile icon"/>
-            <div id='username'><p>'username'</p></div>
+            <div id='username'><p>'username'
+            {pointOne.username} </p> </div>
+
             <img src={miniProfile} id="profile-icon-bar-1" alt="profile icon" />
             {/* <a href='/settings' className='settings-container'> */}
             <img src={miniSettings} id="profile-icon-bar-2" alt="settings icon" />

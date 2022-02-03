@@ -21,7 +21,9 @@ function Categories() {
             <div className='main'>
                 <div className='category-icons'>
                 <img src={logo} className="Travl-logo" alt="logo"/> 
+                <NavLink to='/profile'>
                 <img src={icon} id="category-icon" alt="category icon"/>
+                </NavLink>
                 <img src={miniProfile} id="icon-bar-1" alt="profile bar" />
                 <img src={miniSettings} id="icon-bar-2" alt="profile bar" />
                 </div>

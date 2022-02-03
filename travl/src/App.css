@@ -490,22 +490,36 @@ html, body {
 }
 
 #username {
+  position: relative;
+  align-content: center;
+  justify-content: center;
+  margin-top: auto;
   margin: 80px 0 px 0px 10px;
+  box-sizing: content-box;
+  height: 30px;
+  padding: 0px 10px 0px 10px;
+
+  font-size: smaller;
+  border: 1px solid grey;
+  border-radius: 25px;
+  justify-content: center;
 }
+
 #profile-icon-bar-1{
-  /* position: relative; */
+  position: relative;
   width: 40%;
   padding: 0px 0px 0px 0px;
   margin: 0px;
-  left: 32vw;
+  left: 8vw;
   /* border: 2px solid salmon; */
 }
 
+
 #profile-icon-bar-2{
-  /* position: relative; */
+  position: relative;
   width: 40%;
   padding: 0px 0px 0px 0px;
-  left: 34vw;
+  left: 10vw;
   /* border: 2px solid green; */
 }
 
@@ -697,32 +711,32 @@ POINT OF INTEREST CSS BELOW */
 }
 
 .point-name{
-  border: 1px solid slateblue;
+  border: 1px solid black;
   border-radius: 50px;
   padding: 5px 10px 5px 10px;
   margin: 5px;
 }
 
 .point-location{
-  border: 1px solid slateblue;
+  border: 1px solid black;
   border-radius: 50px;
   padding: 5px 10px 5px 10px;
   margin: 5px;
 }
 
 .point-category{
-  border: 1px solid slateblue;
+  border: 1px solid black;
   border-radius: 50px;
   padding: 5px 10px 5px 10px;
   margin: 5px;
 
 }
 .point-notes{
-  border: 1px solid slateblue;
+  border: 1px solid black;
   border-radius: 25px;
   padding: 5px 10px 5px 10px;
   margin: 5px;
-  height: 25vh;
+  height: 20vh;
 }
 
 /* #point-container { 
@@ -759,7 +773,7 @@ POINT OF INTEREST CSS BELOW */
 
 .poi-image {
   object-fit:fill;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px 10px 4px;
   width: 275px;
   height: 275px;
   border-radius: 50%;
@@ -802,6 +816,27 @@ POINT OF INTEREST CSS BELOW */
   height: 35px;
 }
 
+.sights-icon:hover {
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+}
+.food-icon:hover {
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+}
+.arch-icon:hover {
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+}
+.active-icon:hover {
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+}
+.hist-icon:hover {
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+}
+
 .orange {
   width: 80vw;
   /* border: 1px solid orange; */
@@ -834,9 +869,6 @@ POINT OF INTEREST CSS BELOW */
   height: 65px;
 }
 
-.globe-icon:active {
-  background-color: #61dafb;
-}
 
 /* MAP PAGE CSS BELOW */
 
