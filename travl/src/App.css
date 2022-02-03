@@ -160,7 +160,8 @@ button[type=log-in]{
   color: black
 }
 button:active {
-  background-color: #61dafb;
+  background-color: darkgrey;
+  font-weight: bolder;
 }
 
 .forgot-password-text {
@@ -171,6 +172,9 @@ button:active {
 .sign-up-text {
   font-size: smaller;
   text-align: center;
+}
+.sign-up-text:hover {
+  font-weight: bold;
 }
 
 a {
@@ -199,7 +203,7 @@ a {
   flex-direction: column;
   align-items: center;
   margin: 20vh 10vw 0vh 10vw;
-  height: 90vw;
+  /* height: 90vw; */
 }
 
 #sign-up-form input {
@@ -239,8 +243,13 @@ button[type=submit]{
   justify-content: center;
   place-items: center;
   align-items:center;
-  margin: 10px;
-  
+  margin: 10px;  
+}
+
+.errors {
+  text-align: center;
+  font-size: smaller;
+
 }
 
 /* button {

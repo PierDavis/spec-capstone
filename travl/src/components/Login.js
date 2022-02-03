@@ -69,7 +69,7 @@ function Login(props) {
                 <a href="#">forgot password?</a>
             </p>
             <p  className="sign-up-text">
-                <a href="#">sign up</a>
+                <a href="/signup">sign up</a>
             </p>
         </div>
       

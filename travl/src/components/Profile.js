@@ -18,7 +18,7 @@ function Profile() {
     const [allPoints, setPoint] = useState([])
     function getInfoFromDB(){
         console.log(localStorage.getItem('id'))
-        axios.get(`http://localhost:4000/getInfo/${localStorage.getItem('id')}`)
+        axios.get(`http://localhost:4000/getPoint/${localStorage.getItem('id')}`)
         .then(res => setPoint(res.data[0])) 
     }
     

@@ -15,14 +15,14 @@ function POIPopUp(props) {
 
         <div id='point-category' className="point-category">
         {/* point category */}
-        {props.info.category_id}
+        {props.info.name}
         </div>
 
         <div id='point-notes' className="point-notes">
         {/* point of interest notes */}
         {props.info.notes}
         </div>
-        <button onClick={props.setHidden}>hide</button>
+        {/* <button onClick={props.setHidden}>hide</button> */}
   </div>;
 }
 

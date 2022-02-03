@@ -131,7 +131,7 @@ function SignUp(props) {
          <h1 className="brand">Travl</h1>
     </form>
 
-    <div>
+    <div className='errors'>
         {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
         {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
         {formik.errors.email ? <div> 

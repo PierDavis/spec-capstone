@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import icon from '../icons/globe_icon.svg';
 import logo from '../icons/mini_logo.svg';
 import miniProfile from '../icons/top_miniprofile_icon.svg';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+
 import miniSettings from '../icons/top_minisettings_icon.svg';
 import globe from '../icons/globe_icon_small.svg';
 import pen from '../icons/pen_icon_small.svg';
@@ -13,7 +15,34 @@ import arch from '../icons/category_arch_icons.svg';
 import active from '../icons/category_active_icons.svg';
 import hist from '../icons/category_hist_icons.svg';
 
+const containerStyle = {
+    width: '400px',
+    height: '400px'
+  };
+  
+  const center = {
+    lat: 42.3314,
+    lng: -83.0458
+  };
+
 function MapPage() {
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: "AIzaSyBzz-JZtfmcpg6G5gSbTJdJrRNWgqJnfkA"
+      })
+    
+      const [map, setMap] = React.useState(null)
+    
+      const onLoad = React.useCallback(function callback(map) {
+        const bounds = new window.google.maps.LatLngBounds();
+        map.fitBounds(bounds);
+        setMap(map)
+      }, [])
+    
+      const onUnmount = React.useCallback(function callback(map) {
+        setMap(null)
+      }, [])
+    
     return (
         <div className='wrapper'>
             <div className='main'>
@@ -35,7 +64,18 @@ function MapPage() {
         <div className='main-settings'>
             <div id='container' className='teal'>
                 <div className="map">
-
+                {isLoaded ? (
+        <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+         >
+        { /* Child components, such as markers, info windows, etc. */ }
+        <></>
+        </GoogleMap>
+        ) : <></>}
                 </div>
             </div> 
         </div>

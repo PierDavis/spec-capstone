@@ -107,7 +107,7 @@ function AddPoint(props) {
          /> */}
 
         <div className='categories'>
-        <label for='dropdown'>category</label> 
+        <label form='dropdown'>category</label> 
         <select name='category' className='category-dropdown' id='categories'
         onChange={formik.handleChange}
         value={formik.values.category}>
@@ -151,7 +151,7 @@ function AddPoint(props) {
         <div className='save-button'> <button type='submit' disabled={!formik.isValid}>save</button></div>
     </form>
 
-    <div>
+    <div className='errors'>
         {formik.errors.pointName ? <div>{formik.errors.pointName}</div> : null}
         {formik.errors.location ? <div>{formik.errors.location}</div> : null}
         {formik.errors.category ? <div>{formik.errors.category}</div> : null}
